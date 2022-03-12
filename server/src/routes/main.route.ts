@@ -3,7 +3,7 @@ import mainController from '../controllers/main.controller';
 const mainRouter = Router();
 
 
-mainRouter.get('/', mainController.index)
+mainRouter.get('/insert/:nome/:sobrenome/:cpf', mainController.index)
 
 
 
