@@ -1,0 +1,15 @@
+.product-button-add{
+    border-radius: 5px;
+    background-color: chartreuse;
+    width: 30%;
+    height: 30px;
+    padding: 0 10px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.product-button-add:hover{
+    background-color: #444;
+    color: chartreuse;
+}
