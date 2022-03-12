@@ -3,7 +3,7 @@ import React from "react";
 const Products = ({ product }) => {
   return (
     <>
-    {product.map(produtos => <h4>{produtos.nome}</h4>)}
+    {product.map(produtos => <h4 key={Math.random()}>{produtos.nome}</h4>)}
     </>
   );
 };

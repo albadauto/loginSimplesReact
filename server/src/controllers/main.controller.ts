@@ -4,19 +4,36 @@ import userModel from "../models/user.model";;
 class MainController {
 
     public async index(req: Request, res: Response): Promise<void> {
-        res.header("Access-Control-Allow-Origin", "*");
+        try{
+            res.header("Access-Control-Allow-Origin", "*");
+            await userModel.create({
+                nome: req.params.nome,
+                sobrenome: req.params.sobrenome,
+                cpf: req.params.cpf
+            })
+    
+            res.json({
+                nome: req.params.nome,
+                sobrenome: req.params.sobrenome,
+                cpf: req.params.cpf
+            })
+        }catch(err){
+            console.log(err)
+        }
+        
+    }
 
-        await userModel.create({
-            nome: req.params.nome,
-            sobrenome: req.params.sobrenome,
-            cpf: req.params.cpf
-        })
+    public async allUsers(req: Request, res: Response): Promise<void>{
+        try{
+            res.header("Access-Control-Allow-Origin", "*");
 
-        res.json({
-            nome: req.params.nome,
-            sobrenome: req.params.sobrenome,
-            cpf: req.params.cpf
-        })
+            const result = await userModel.find({});
+            var obj = [];
+            
+            res.json(result);
+        }catch(err){
+            console.log(err)
+        }
     }
 
 }
