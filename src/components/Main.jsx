@@ -19,8 +19,10 @@ const Main = () => {
       const nome = document.getElementById("nome").value;
       const sobrenome = document.getElementById("sobrenome").value;
       const cpf = document.getElementById("cpf").value;
-      const alerta = document.getElementById("alerta");
-      api.get(`/main/insert/${nome}/${sobrenome}/${cpf}`).then((res) => (alerta.innerHTML = "Cadastrado"));
+      api.get(`/main/insert/${nome}/${sobrenome}/${cpf}`).then((res) => {
+        document.location.reload();        
+      });
+      
     } catch (err) {
       console.log(err);
     }
@@ -54,7 +56,7 @@ const Main = () => {
       {data.map((result, key) => {
         return (
           <div className="seila">
-            <h5>*{result.nome} </h5>
+            <h5>*{result.nome} {result.sobrenome}</h5>
           </div>
         );
       })}
